@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #1e193f;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #48266e;
+            cursor: pointer;
+        }
+        nav button:hover {
+            background-color: #ddd;
+        }
+        section {
+            display: none; /* Sembunyikan semua bagian secara default */
+            padding: 20px;
+            margin: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .active {
+            display: block; /* Tampilkan bagian yang aktif */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portofolio Pribadi</h1>
+        <nav>
+            <button onclick="showSection('about')">Tentang Saya</button>
+            <button onclick="showSection('projects')">Project</button>
+            <button onclick="showSection('contact')">Kontak</button>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <p>Nama: Marsya Ayu Cinta Laudia</p>
+        <p>Kelas: 11 TKJ 2</p>
+        <p>Sekolah: SMK Negeri 2 Malang</p>
+            
+        <p>Saya adalah siswa kelas 11 di jurusan Teknik Komputer dan Jaringan di SMK Negeri 2 Malang. Dengan 
+            ketertarikan yang mendalam dalam bidang teknologi informasi, saya berfokus pada pengembangan keterampilan dalam jaringan komputer, pemrograman, dan manajemen sistem.</p>
+        <p>Saya memiliki kemampuan dalam menggunakan berbagai alat dan bahasa pemrograman, termasuk HTML, CSS, dan JavaScript, serta pengalaman dalam merancang dan mengelola
+            jaringan komputer. Selain itu, saya aktif dalam kegiatan ekstrakurikuler yang mendukung pengembangan keterampilan kepemimpinan dan kerja sama tim.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Pengalaman Project</h2>
+        <div class="project">
+            <h3>Proyek 1: Jaringan Komputer di Laboratorium Sekolah</h3>
+            <p>Deskripsi :
+                Proyek ini bertujuan untuk membangun dan mengelola jaringan komputer di laboratorium sekolah guna mendukung kegiatan belajar mengajar. Saya terlibat dalam perencanaan, instalasi, dan konfigurasi perangkat jaringan seperti router, switch, dan kabel UTP. Proses ini mencakup pengaturan alamat IP, subnetting, serta pengujian konektivitas antar perangkat. Selain itu, saya juga melakukan pengamanan jaringan untuk melindungi data dan perangkat dari akses yang tidak sah. Hasil dari proyek ini adalah jaringan yang stabil dan efisien, memungkinkan siswa dan guru mengakses sumber daya online serta aplikasi pembelajaran dengan mudah
+                <p>Teknologi/Alat yang Digunakan:
+                Router, Switch, Kabel UTP, Software Cisco Packet Tracer</p>
+                <p>Hasil :
+                Jaringan yang dibangun berhasil mendukung konektivitas seluruh komputer di laboratorium dengan kecepatan akses yang optimal. Proyek ini juga meningkatkan pemahaman saya tentang konsep jaringan serta keterampilan teknis dalam konfigurasi dan pengelolaan perangkat jaringan.</p>
+        </div>
+        <div class="project">
+            <h3>Proyek 2: Website Portofolio Pribadi</h3>
+            <p>Deskripsi :
+                Membangun website portofolio pribadi untuk menampilkan keterampilan dan proyek yang telah saya kerjakan. Website ini dirancang dengan antarmuka yang responsif dan menarik, menggunakan HTML, CSS, dan JavaScript. Fitur utama termasuk galeri proyek, halaman tentang saya, dan formulir kontak.</p>
+                <p>Teknologi/Alat yang Digunakan:
+                HTML, CSS, JavaScript</p>
+                <p>Hasil :
+                Website ini berhasil menarik perhatian beberapa pengunjung dan mendapatkan umpan balik positif dari teman-teman dan guru. Selain itu, proyek ini meningkatkan keterampilan saya dalam pengembangan web .</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak</h2>
+        <form id="contactForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Pesan:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <script>
+        function 
+        showSection(sectionId) {
+            // Sembunyikan semua section
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Tampilkan section yang dipilih
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+
+        // Menangani pengiriman form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Tampilkan hasil di konsol (atau bisa disimpan ke server)
+            console.log('Nama:', name);
+            console.log('Email:', email);
+            console.log('Pesan:', message);
+
+            // Reset form setelah pengiriman
+            this.reset();
+            alert('Pesan Anda telah dikirim!');
+        });
+    </script>
+</body>
+</html>
